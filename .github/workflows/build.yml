@@ -17,7 +17,11 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
+          flutter-version: "3.35.7"
           cache: true
+
+      - name: Opt out of AGP 9 new DSL
+        run: echo "android.newDsl=false" >> android/gradle.properties
 
       - run: flutter pub get
 
